@@ -1,28 +1,28 @@
-function fizz() {
+function fizzBuzz() {
     let num1 = prompt("Enter a number: ")
     if (num1 == null) {
         return;
     }
     Number(num1)
-    function Buzz() {
+    function checkNumber() {
         switch (true) {
             case num1 % 5 == 0 && num1 % 3 == 0:
                 alert("FizzBuzz")
-                fizz()
+                fizzBuzz()
                 break;
             case num1 % 5 == 0:
                 alert("Fizz")
-                fizz()
+                fizzBuzz()
                 break;
             case num1 % 3 == 0:
                 alert("Buzz")
-                fizz()
+                fizzBuzz()
                 break;
             default:
                 alert("Invalid Value")
                 break;
             }
         }
-    Buzz()
+    checkNumber()
 }
-fizz()
+fizzBuzz()
