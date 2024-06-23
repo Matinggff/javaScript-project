@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    outline: 0;
+}
+.header{
+    width: 100vw;
+    height: 80px;
+    background-color: #00aa00;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.fa{
+    font-size: 26px;
+    cursor: pointer;
+}
+.menu{
+    height: 100vw;
+    width: 20%;
+    background-color: antiquewhite;
+    transform: translate(-100%);
+    transition: 0.8s ease;
+}
+.item:hover{
+    cursor: default;
+    transition: 0.7s;
+    background-color:rgb(182, 171, 157) ;
+}
+.open{
+    transform: translate(0);
+}
+.item{
+    font-size: 24px;
+    text-align: center;
+    padding: 30px;
+    border-bottom: white solid 3px;
+
+}
