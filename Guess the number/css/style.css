@@ -81,3 +81,10 @@
     align-items: center;
     width: 100vw;
 }
+.item img {
+    width: 40px; 
+    height: 40px;
+  }
+.item{
+    margin-left: 2px;
+}
