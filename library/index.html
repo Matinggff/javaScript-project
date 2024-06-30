@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Home</title>
+  </head>
+  <body dir="rtl">
+    <br />
+    <div class="container">
+      <div class="con">
+        <div class="header">افزودن کتاب</div>
+      </div>
+      <br /><br />
+      <div class="form-container">
+        <form class="book-form">
+          <div class="form-row">
+            <label for="bookName">نام کتاب:</label>
+            <input type="text" id="bookName" />
+          </div>
+          <div class="form-row">
+            <label for="author">نویسنده:</label>
+            <input type="text" id="author" />
+          </div>
+          <div class="form-row">
+            <label for="publicationYear">سال انتشار:</label>
+            <input type="text" id="publicationYear" />
+          </div>
+          <div class="form-row">
+            <label for="publisher">ناشر:</label>
+            <input type="text" id="publisher" />
+          </div>
+          <div class="form-row">
+            <label for="pageCount">تعداد صفحات:</label>
+            <input type="text" id="pageCount" />
+          </div>
+          <div class="form-row">
+            <label for="genre">ژانر:</label>
+            <select id="genre">
+              <option value="داستانی">داستانی</option>
+              <option value="غیرداستانی">غیرداستانی</option>
+              <option value="علمی-تخیلی">علمی-تخیلی</option>
+              <option value="فانتزی">فانتزی</option>
+              <option value="معمایی">معمایی</option>
+              <option value="عاشقانه">عاشقانه</option>
+            </select>
+          </div>
+          <div class="form-row submit-row">
+            <button type="submit" class="submit-button">ثبت</button>
+          </div>
+        </form>
+      </div>
+      <div id="book-list">
+        <h2>لیست کتاب‌ها</h2>
+        <div class="form-row submit-row">
+          <button
+            type="submit"
+            class="submit-button"
+            id="delete-book"
+            style="width: 150px"
+          >
+            حذف اخرین کتاب
+          </button>
+        </div>
+        <ul id="bookDisplay"></ul>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
