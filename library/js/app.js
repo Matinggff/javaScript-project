@@ -33,11 +33,9 @@ deleteBook.addEventListener("click", () => {
 function displayBooks(books) {
     const bookDisplay = document.getElementById("bookDisplay");
     bookDisplay.innerHTML = '';
-
-    for (let i = 0; i < books.length; i++) {
-        const book = books[i];
-        const display = document.createElement('li');
-        display.textContent = `${book.bookName} - ${book.author} - ${book.publicationYear} - ${book.publisher} - ${book.pageCount} - ${book.genre}`;
-        bookDisplay.appendChild(display);
-    }
+    bookLists.forEach(function(e){
+        const display = document.createElement("li");
+        display.textContent = `${e.bookName} - ${e.author} - ${e.publicationYear} - ${e.publisher} - ${e.pageCount} - ${e.genre}`;
+        bookDisplay.appendChild(display)
+    })
 }
