@@ -1,0 +1,55 @@
+body {
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+  }
+  
+  #searchInput {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    position: sticky; 
+    top: 0; 
+    background: white;
+    z-index: 1; 
+  }
+  
+  #results {
+    text-align: left;
+    margin-top: 20px;
+  }
+  
+  .user {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .user p {
+    margin: 5px 0;
+  }
+  
