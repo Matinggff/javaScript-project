@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    height: 500px;
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    margin-top: 70px;
+    border: 3px solid rgba(230, 237, 232, 0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(1.2px);;
+    
+
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+    
+}
+
+.todo-input {
+    border: 3px solid rgba(230, 237, 232, 0.5);
+    width: 270px;
+    height: 35px;
+    background: transparent;
+    border-radius: 100px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.todo-input::placeholder {
+    color: #f2f7f4;
+}
+.todo-input:focus {
+    outline: 3px solid rgba(230, 237, 232, 0.5);
+}
+
+.add-button {
+    font-family: initial;
+    border: none;
+    outline: none;
+    background: #e6b7eca1;
+    font-size: 35px; 
+    border-radius: 40px;
+    color: #fff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-left: 10px; 
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 10px;
+}
+
+.action-buttons button {
+    border: 3px solid rgba(230, 237, 232, 0.5);
+    outline: none;
+    background: transparent; 
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 10px 15px;
+    flex: 1;
+    margin: 0 5px;
+}
+.action-buttons button:hover {
+    background-color: rgba(54,80,113,0.5);
+}
+
+
+
+h1 {
+    margin-top: 40px;
+}
+
+.todoes-container {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; 
+    max-height: 300px; 
+}
+
+.empty-image {
+    width: 150px;
+    height: 150px;
+    margin-top: 60px;
+    
+}
+.to {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #463c7b;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 2px solid #e6b7eca1;
+    transition: all 0.2s ease;
+    width: 300px;
+    max-width: 90%; 
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    cursor: pointer;
+    font-size: 16px; 
+    transition: background-color 0.2s ease;
+    text-align: center; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}

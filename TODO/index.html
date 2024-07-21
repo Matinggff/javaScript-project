@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <div class="input-container">
+            <input class="todo-input" type="text" placeholder="Add a new task .........">
+            <button class="add-button">
+                <i class="fa fa-plus-circle"></i>
+            </button>
+        </div>
+        
+        <!-- New Buttons -->
+        <div class="action-buttons">
+            <button class="complete-button">Complete</button>
+            <button class="incomplete-button">Incomplete</button>
+            <button class="delete-all-button">Delete All</button>
+        </div>
+    
+        <div class="todoes-container">
+            <ul class="todoes"></ul>
+            <img class="empty-image" src="img/empty-image.svg">
+        </div>
+    </div> 
+    <script type="module"  src="./js/app.js"></script>
+</body>
+</html>
