@@ -3,6 +3,7 @@ import { generateUUID } from "./script.js";
 document.addEventListener('DOMContentLoaded', () => {
     const input = document.querySelector(".todo-input");
     const addButton = document.querySelector(".add-button");
+    const completeButton = document.querySelector(".complete-button");
     const todoesHtml = document.querySelector(".todoes");
     const emptyImage = document.querySelector(".empty-image");
     let todoesJson = JSON.parse(localStorage.getItem("todoes")) || [];
@@ -26,18 +27,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    completeButton.addEventListener('click', () => {
+        todoesJson.forEach((item) => {
+            if (item.completed) {
+                const listItem = document.getElementById(item.id);
+                if (listItem) {
+                    listItem.classList.toggle('completed');
+                }
+            }
+        })
+        localStorage.setItem("todoes", JSON.stringify(todoesJson));
+    })
+    
+    
+
     function todoesRender() {
         todoesHtml.innerHTML = '';
         todoesJson.forEach((item) => {
+
+
             const listItem = document.createElement('li');
-            listItem.textContent = item.text; 
+            listItem.textContent = item.text;
+            listItem.id = item.id;
             listItem.classList.add("to")
+
+            if (item.completed) {
+                listItem.classList.toggle('completed')
+            }
+
+            const checkItem = document.createElement('input');
+            checkItem.type = "checkbox";
+            checkItem.checked = item.completed;
+
+            checkItem.addEventListener('change', () => {
+                item.completed = checkItem.checked;
+                localStorage.setItem("todoes", JSON.stringify(todoesJson));
+            })
 
             const deleteButton = document.createElement('button');
             deleteButton.textContent = 'Delete';
             deleteButton.classList.add('delete-button');
 
             listItem.appendChild(deleteButton)
+            listItem.appendChild(checkItem)
             todoesHtml.appendChild(listItem);
 
 
@@ -51,3 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+
+
+
+

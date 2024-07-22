@@ -135,9 +135,18 @@ h1 {
     padding: 8px 20px;
     cursor: pointer;
     font-size: 16px; 
-    transition: background-color 0.2s ease;
+    transition: 0.2s ease;
     text-align: center; 
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; 
+}
+.to input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* New styles for completed items */
+.completed {
+    text-decoration: line-through;
+    color: gray;
 }
