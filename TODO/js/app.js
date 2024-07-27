@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         localStorage.setItem("todoes", JSON.stringify(todoesJson));
     })
+    
     todoesHtml.addEventListener('click', (e)=> {
         if (e.target.classList.contains('delete-button')) {
             const todoId = e.target.parentElement.getAttribute('id')
