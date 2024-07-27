@@ -146,7 +146,7 @@ h1 {
     margin-right: 10px;
 }
 
-/* New styles for completed items */
+
 .completed {
     text-decoration: line-through;
     color: gray;
