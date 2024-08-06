@@ -1,131 +1,117 @@
 import { generateUUID } from "./script.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-    const input = document.querySelector(".todo-input");
-    const addButton = document.querySelector(".add-button");
-    const completeButton = document.querySelector(".complete-button");
-    const incompleteButton = document.querySelector(".incomplete-button");
-    const deleteAllButton = document.querySelector(".delete-all-button");
-    const todoesHtml = document.querySelector(".todoes");
-    const emptyImage = document.querySelector(".empty-image");
-    let todoesJson = JSON.parse(localStorage.getItem("todoes")) || [];
+class TodoApp {
+    constructor() {
+        this.input = document.querySelector(".todo-input");
+        this.addButton = document.querySelector(".add-button");
+        this.completeButton = document.querySelector(".complete-button");
+        this.incompleteButton = document.querySelector(".incomplete-button");
+        this.deleteAllButton = document.querySelector(".delete-all-button");
+        this.todoesHtml = document.querySelector(".todoes");
+        this.emptyImage = document.querySelector(".empty-image");
+        this.todoesJson = JSON.parse(localStorage.getItem("todoes")) || [];
 
-    todoesRender();
+        this.addEventListeners();
+        this.renderTodos();
+    }
 
-    addButton.addEventListener("click", () => {
-        const taskText = input.value.trim();
+    addEventListeners() {
+        this.addButton.addEventListener("click", () => this.addTodo());
+        this.completeButton.addEventListener("click", () => this.filterTodos(true));
+        this.incompleteButton.addEventListener("click", () => this.filterTodos(false));
+        this.deleteAllButton.addEventListener("click", () => this.deleteAllTodos());
+        this.todoesHtml.addEventListener('click', (e) => this.handleTodoClick(e));
+    }
 
+    addTodo() {
+        const taskText = this.input.value.trim();
         if (taskText !== '') {
             const newTodo = {
                 id: generateUUID(), 
                 text: taskText,
                 completed: false 
             };
-            todoesJson.push(newTodo);
-            localStorage.setItem("todoes", JSON.stringify(todoesJson));
-            todoesRender();
-            input.value = '';
+            this.todoesJson.push(newTodo);
+            localStorage.setItem("todoes", JSON.stringify(this.todoesJson));
+            this.renderTodos();
+            this.input.value = '';
         }
-    });
+    }
 
-    completeButton.addEventListener("click", () => {
-        filterTodoes(true);
-    });
+    renderTodos() {
+        this.todoesHtml.innerHTML = '';
+        this.todoesJson.forEach((item) => {
+            const listItem = this.createTodoElement(item);
+            this.todoesHtml.appendChild(listItem);
+        });
+        this.updateEmptyImage();
+    }
 
-    incompleteButton.addEventListener("click", () => {
-        filterTodoes(false);
-    });
+    createTodoElement(item) {
+        const listItem = document.createElement('li');
+        listItem.textContent = item.text;
+        listItem.id = item.id;
+        listItem.classList.add("to");
 
-    deleteAllButton.addEventListener("click", () => {
-        todoesJson = [];
-        localStorage.setItem("todoes", JSON.stringify(todoesJson));
-        todoesRender();
-    });
+        if (item.completed) {
+            listItem.classList.add('completed');
+        }
 
-    todoesHtml.addEventListener('click', (e)=> {
+        const checkItem = document.createElement('input');
+        checkItem.type = "checkbox";
+        checkItem.checked = item.completed;
+        checkItem.addEventListener('change', () => this.toggleTodoComplete(item, checkItem, listItem));
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
+
+        listItem.appendChild(deleteButton);
+        listItem.appendChild(checkItem);
+
+        return listItem;
+    }
+
+    toggleTodoComplete(item, checkItem, listItem) {
+        item.completed = checkItem.checked;
+        listItem.classList.toggle('completed', item.completed);
+        localStorage.setItem("todoes", JSON.stringify(this.todoesJson));
+    }
+
+    filterTodos(showCompleted) {
+        this.todoesHtml.innerHTML = '';
+        const filteredTodoes = this.todoesJson.filter(item => item.completed === showCompleted);
+        filteredTodoes.forEach((item) => {
+            const listItem = this.createTodoElement(item);
+            this.todoesHtml.appendChild(listItem);
+        });
+        this.updateEmptyImage(filteredTodoes);
+    }
+
+    deleteAllTodos() {
+        this.todoesJson = [];
+        localStorage.setItem("todoes", JSON.stringify(this.todoesJson));
+        this.renderTodos();
+    }
+
+    handleTodoClick(e) {
         if (e.target.classList.contains('delete-button')) {
             const todoId = e.target.parentElement.getAttribute('id');
-            todoesJson = todoesJson.filter((item) => item.id !== todoId);
-            todoesRender();
-            localStorage.setItem("todoes", JSON.stringify(todoesJson));
-        }
-    });
-
-    function todoesRender() {
-        todoesHtml.innerHTML = '';
-        todoesJson.forEach((item) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = item.text;
-            listItem.id = item.id;
-            listItem.classList.add("to");
-
-            if (item.completed) {
-                listItem.classList.add('completed');
-            }
-
-            const checkItem = document.createElement('input');
-            checkItem.type = "checkbox";
-            checkItem.checked = item.completed;
-
-            checkItem.addEventListener('change', () => {
-                item.completed = checkItem.checked;
-                listItem.classList.toggle('completed', item.completed);
-                localStorage.setItem("todoes", JSON.stringify(todoesJson));
-            });
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.classList.add('delete-button');
-
-            listItem.appendChild(deleteButton);
-            listItem.appendChild(checkItem);
-            todoesHtml.appendChild(listItem);
-        });
-
-        if (todoesJson.length > 0) {
-            emptyImage.style.display = 'none';
-        } else {
-            emptyImage.style.display = 'block';
+            this.todoesJson = this.todoesJson.filter((item) => item.id !== todoId);
+            this.renderTodos();
+            localStorage.setItem("todoes", JSON.stringify(this.todoesJson));
         }
     }
 
-    function filterTodoes(showCompleted) {
-        todoesHtml.innerHTML = '';
-        const filteredTodoes = todoesJson.filter(item => item.completed === showCompleted);
-
-        filteredTodoes.forEach((item) => {
-            const listItem = document.createElement('li');
-            listItem.textContent = item.text;
-            listItem.id = item.id;
-            listItem.classList.add("to");
-
-            if (item.completed) {
-                listItem.classList.add('completed');
-            }
-
-            const checkItem = document.createElement('input');
-            checkItem.type = "checkbox";
-            checkItem.checked = item.completed;
-
-            checkItem.addEventListener('change', () => {
-                item.completed = checkItem.checked;
-                listItem.classList.toggle('completed', item.completed);
-                localStorage.setItem("todoes", JSON.stringify(todoesJson));
-            });
-
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Delete';
-            deleteButton.classList.add('delete-button');
-
-            listItem.appendChild(deleteButton);
-            listItem.appendChild(checkItem);
-            todoesHtml.appendChild(listItem);
-        });
-
+    updateEmptyImage(filteredTodoes = this.todoesJson) {
         if (filteredTodoes.length > 0) {
-            emptyImage.style.display = 'none';
+            this.emptyImage.style.display = 'none';
         } else {
-            emptyImage.style.display = 'block';
+            this.emptyImage.style.display = 'block';
         }
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    new TodoApp();
 });
