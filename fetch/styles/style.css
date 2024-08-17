@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#unitList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.unit-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.unit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.unit-card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.unit-card h2 {
+    color: #555;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.unit-card p {
+    color: #777;
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.unit-card .price {
+    color: #d9534f;
+    font-weight: bold;
+}
+
+.unit-card .for-sale {
+    color: #5cb85c;
+    font-weight: bold;
+}
