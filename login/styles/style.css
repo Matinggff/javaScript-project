@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login-form {
+    flex: 1;
+    padding: 50px;
+}
+
+.login-form h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.login-form p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login-form input {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.options a {
+    color: #999;
+    text-decoration: none;
+}
+
+.sign-in-btn {
+    background-color: #ff4b5c;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.google-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.google-btn img {
+    margin-right: 10px;
+}
+
+.sign-up-text {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sign-up-text a {
+    color: #ff4b5c;
+    text-decoration: none;
+}
+
+.image-section {
+    flex: 1;
+    background: url('../img/covor.png') no-repeat center center;
+    background-size: cover;
+}
