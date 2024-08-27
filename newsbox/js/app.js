@@ -3,13 +3,11 @@ const url = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${ap
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Simulate an API request or any async operation
-    setTimeout(() => {
+    
         hideLoader();
         showContent();
-        fetchNews();
-    }, 3000); // Replace with your actual data loading logic and time
-
+        
+    
     function hideLoader() {
         const loader = document.getElementById("loader");
         loader.style.display = "none";
@@ -18,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function showContent() {
         const content = document.getElementById("content");
         content.style.display = "block";
+        fetchNews();
     }
 });
 

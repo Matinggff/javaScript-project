@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+body {
+    background-color: #192030;
+    color: #fff;
+}
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #283046;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.search-bar {
+    background-color: #394057;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: #ccc;
+}
+.character-list, .character-details, .episode-list {
+    background-color: #283046;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+}
+.character-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #394057;
+    border-radius: 5px;
+}
+.character-item img {
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.character-item p {
+    margin-left: auto;
+}
+.character-details img {
+    width: 100%;
+    border-radius: 10px;
+}
+.episode-list ul {
+    list-style: none;
+}
+.episode-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #394057;
+}
+.episode-list li:last-child {
+    border-bottom: none;
+}

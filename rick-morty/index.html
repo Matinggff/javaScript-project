@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick And Morty</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>Logo</div>
+            <input type="text" class="search-bar" placeholder="Search...">
+            <div>Found <span id="character-count">0</span> characters <span>❤️</span></div>
+        </header>
+
+        <div class="main-content">
+            <div id="character-list" class="character-list">
+                <!-- characters -->
+            </div>
+
+            <div class="character-details">
+                <img id="character-image" src="" alt="Character Image">
+                <p><strong id="character-status"></strong></p>
+                <p>Last known location:<br><strong id="character-location"></strong></p>
+                <p id="favourite-note"></p>
+            </div>
+
+            <div class="episode-list">
+                <h2>List of Episodes</h2>
+                <ul id="episode-list">
+                    <!-- episods -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
