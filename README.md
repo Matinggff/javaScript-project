@@ -1,2 +1,2 @@
-https://matinggff.github.io/javaScript-project/login
+https://matinggff.github.io/javaScript-project/newsbox
 
