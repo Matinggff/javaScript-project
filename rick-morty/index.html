@@ -2,40 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rick And Morty</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Character Dashboard</title>
 </head>
 <body>
     <div class="container">
         <header>
-            <div>Logo</div>
-            <input type="text" class="search-bar" placeholder="Search...">
-            <div>Found <span id="character-count">0</span> characters <span>❤️</span></div>
+            <div class="logo">Logo</div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+            </div>
+            <div class="favorites">
+                <span>❤️</span>
+            </div>
         </header>
-
-        <div class="main-content">
-            <div id="character-list" class="character-list">
-                <!-- characters -->
-            </div>
-
-            <div class="character-details">
-                <img id="character-image" src="" alt="Character Image">
-                <p><strong id="character-status"></strong></p>
-                <p>Last known location:<br><strong id="character-location"></strong></p>
-                <p id="favourite-note"></p>
-            </div>
-
-            <div class="episode-list">
-                <h2>List of Episodes</h2>
-                <ul id="episode-list">
-                    <!-- episods -->
-                </ul>
-            </div>
-        </div>
+        <main>
+            <aside class="sidebar">
+                <div id="character-list" class="character-list">
+                    <!-- Characters -->
+                </div>
+            </aside>
+            <section class="details">
+                <div class="character-details">
+                    <img id="character-image" src="" alt="Character Image">
+                    <div class="character-meta">
+                        <p id="character-status"></p>
+                        <p id="character-location"></p>
+                        <p id="favourite-note"></p>
+                    </div>
+                </div>
+                <div class="episodes">
+                    <h3>List of Episodes</h3>
+                    <ul>
+                        <li><strong>S01E01 : Pilot</strong> - December 2, 2013</li>
+                        <li><strong>S01E02 : Lawnmower Dog</strong> - December 9, 2013</li>
+                        <li><strong>S01E03 : Anatomy Park</strong> - December 16, 2013</li>
+                        <li><strong>S01E04 : M. Night Shaym-Aliens!</strong> - January 13, 2014</li>
+                        <li><strong>S01E05 : Meeseeks and Destroy</strong> - January 20, 2014</li>
+                        <li><strong>S01E06 : Rick Potion #9</strong> - January 27, 2014</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
     </div>
-
-    <script src="js/app.js"></script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
