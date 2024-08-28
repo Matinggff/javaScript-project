@@ -1,2 +1,2 @@
-https://matinggff.github.io/javaScript-project/newsbox
+https://matinggff.github.io/javaScript-project/rick-morty
 
