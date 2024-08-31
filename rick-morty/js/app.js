@@ -32,11 +32,25 @@ function showCharacters(characters) {
     });
 }
 
-function showDetailCharacters(character) {
+async function showDetailCharacters(character) {
     document.getElementById("character-image").src = character.image;
     document.getElementById("character-status").textContent = `${character.status} - ${character.species}`;
     document.getElementById("character-location").textContent = `Last known location: ${character.location.name}`;
     document.getElementById("favourite-note").textContent = 'This character already is in your favourites';
+
+    const ul = document.getElementById("ul");
+    ul.innerHTML='';
+    const episodesUrl = character.episode.map((url)=> fetch(url).then((res)=> res.json()));
+    const episodes = await Promise.all(episodesUrl);
+    
+    episodes.forEach((item)=> {
+        const li = document.createElement("li");
+        li.innerHTML = `
+        <strong>${item.episode} : ${item.name}</strong> - ${item.air_date}
+        `;
+        ul.appendChild(li);
+    })
+
 }
 
 function searchCharacters(characters) {
