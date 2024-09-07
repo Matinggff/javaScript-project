@@ -140,3 +140,39 @@ main {
 .episodes strong {
     color: #ffffff;
 }
+button#add-to-fav {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease; 
+}
+
+button#add-to-fav:hover {
+    background-color: #45a049;
+}
+button#remove-from-fav {
+    background-color: #fc0202;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease; 
+}
+
+button#remove-from-fav:hover {
+    background-color: #c12c2c;
+}
