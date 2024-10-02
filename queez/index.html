@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Khelo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        
+        <section class="section login" id="login-section">
+            <div class="quiz-title">
+                <h1>QUIZ <span>Khelo</span></h1>
+            </div>
+            <form class="name-input" id="name-form">
+                <input type="text" id="user-name" placeholder="Enter your name">
+                <button type="submit" id="start-btn">Start</button>
+            </form>
+        </section>
+
+      
+        <section class="section quiz" id="quiz-section">
+            <p class="question">In what year did the United States host the FIFA World Cup for the first time?</p>
+            <div class="options">
+                <label><input type="radio" name="answer"> 1986</label>
+                <label><input type="radio" name="answer"> 1994</label>
+                <label><input type="radio" name="answer"> 2002</label>
+                <label><input type="radio" name="answer"> 2010</label>
+            </div>
+            <button class="next-btn">Next</button>
+        </section>
+
+        
+        <section class="section leaderboard">
+            <h2>Leaderboard</h2>
+            <ul class="leaderboard-list">
+                <li>
+                    <div class="rank">1</div>
+                    <div class="name">David James</div>
+                    <div class="score">9/10</div>
+                </li>
+                <li>
+                    <div class="rank">2</div>
+                    <div class="name">John Deh</div>
+                    <div class="score">8/10</div>
+                </li>
+                <li>
+                    <div class="rank">3</div>
+                    <div class="name">Michael</div>
+                    <div class="score">7/10</div>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
