@@ -1,2 +1,2 @@
-https://matinggff.github.io/javaScript-project/rick-morty
+https://matinggff.github.io/javaScript-project/queez
 
